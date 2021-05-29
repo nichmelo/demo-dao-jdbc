@@ -37,6 +37,16 @@ public class Program {
 		Seller newSeller = new Seller(null, "Pedro Melo", "pedro@gmail.com", sdf.parse("05/10/1999"), 4000.0, dep);
 		sellerDao.insert(newSeller);
 		System.out.println("Inserted! New id = " + newSeller.getId());
+		
+		System.out.println("\nTEST 5: UPDATE SELLER");
+		seller = sellerDao.findById(6);
+		seller.setName("Severina Deodata");
+		seller.setEmail("severina@gmail.com");
+		seller.setBirthDate(sdf.parse("20/06/1952"));
+		seller.setBaseSalary(5350.0);
+		seller.setDepartment(dep);
+		sellerDao.update(seller);
+		System.out.println("Updated!");
 	}
 
 }
